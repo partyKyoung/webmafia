@@ -1,0 +1,13 @@
+header {
+  height: 50px;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .caret {
+    display: none;
+  }
+}
