@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router';
 import './style.scss';
 
 import Header from './container/header/Header';
@@ -9,13 +9,19 @@ import Footer from './container/footer/Footer';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Home />
-        <Footer />
-      </div>
+    <div>
+      <Header />
+      <div className="container">
+        <Switch>
+          <Route exact path='/' component={Home} />
+        </Switch>   
+      </div>     
+      <Footer />
+    </div>
     );
   }
 }
 
 export default App;
+
+
