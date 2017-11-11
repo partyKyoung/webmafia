@@ -6,12 +6,29 @@ header {
     display: block;
     clear: both;
   }
-
-  .caret {
-    display: none;
-  }  
 }
 
-.header-menu {
+h1 {
+  padding-left: 16px;
+  line-height: $header-height;  
+  font-size: $h1-size;
+}
+
+.header-nav {
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  .navbar-toggler {
+    font-size: $font-default-size;
+    height: 100%;
+  }
+}
+
+.menu {
   width: 100%;
+  height: $menu-height;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
 }
+

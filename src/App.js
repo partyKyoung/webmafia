@@ -4,18 +4,20 @@ import './style.scss';
 
 import Header from './container/header/Header';
 import Home from './container/home/Home';
+import Ssiam from './container/home/Ssiam';
 import Footer from './container/footer/Footer';
+import SignUp from './container/user/SignUp';
 
 class App extends Component {
   render() {
     return (
     <div>
       <Header />
-      <div className="container">
-        <Switch>
-          <Route exact path='/' component={Home} />
-        </Switch>   
-      </div>     
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/ssiam' component={Ssiam} />
+        <Route path='/user/SignUp' component={SignUp} />
+      </Switch>   
       <Footer />
     </div>
     );
