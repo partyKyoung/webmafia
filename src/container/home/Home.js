@@ -5,7 +5,7 @@ import Ssiam from './Ssiam';
 class Home extends Component {
   render () {
     return (
-      <div className="home">
+      <div className="container">
         <Ssiam />
         <img src="/img/package.png" alt="package"/>
       </div>
