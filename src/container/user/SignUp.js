@@ -3,8 +3,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import * as validation from '../../lib/user/validations';
 
 const FormField = (props) => {
-  const {label, placeholder, onChange, type, value} = props;
-
+  const {label, placeholder, onChange, type, value, validationCheck} = props;
+  const error = validationCheck(value);
+console.log(error);
   return (
     <FormGroup className="row">
       <Label className="col-12 col-md-3 col-form-label text-md-right pl-0 pr-4" for={type}>{label}</Label>
@@ -14,6 +15,7 @@ const FormField = (props) => {
         onChange={() => {onChange(type, value)}}
         value={value}
       />
+      <div>{error.isError && error.text}</div>
     </FormGroup>    
   );
 }
