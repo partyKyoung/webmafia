@@ -10,15 +10,4 @@ const emailTypeCheck = (value) => {
 export const checkEmail = (value) => {
   let isError = false;
   let validationText = '';
-
-  validationText = emailTypeCheck(value);
-
-  if (validationText) {
-    isError = true;
-  }
-
-  return {
-    isError: isError,
-    validationText: validationText
-  }
 }
