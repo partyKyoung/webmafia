@@ -10,4 +10,10 @@ const emailTypeCheck = (value) => {
 export const checkEmail = (value) => {
   let isError = false;
   let validationText = '';
+
+  validationText = required(value);
+
+  if (validationText) {
+    return validationText;
+  }
 }

@@ -4,6 +4,12 @@ import * as validation from '../../lib/user/validations';
 
 const FormField = (props) => {
   const {label, placeholder, onChange, type, value, validationCheck} = props;
+  let error = '';
+  const blurEvent = (value) => {
+    error = validationCheck(value);
+  }
+
+  console.log(error);
 
   return (
     <FormGroup className="row">
@@ -12,9 +18,10 @@ const FormField = (props) => {
         type={type} name={type} id={type} 
         placeholder={placeholder} 
         onChange={(e) => {onChange(type, e.target.value)}}
+        onBlur={(e) => {blurEvent(e.target.value)}}
         value={value}
       />
-      <div className="invalid-feedback">hhh</div>
+      <div className="invalid-feedback">{error}</div>
     </FormGroup>    
   );
 }
@@ -34,7 +41,7 @@ class SignUp extends Component {
   }
 
   handleChangeValue (type, value) {
-    console.log(value);
+   
     this.setState({
       [type]: value
     })
@@ -52,6 +59,7 @@ class SignUp extends Component {
               placeholder="Email을 입력해주세요."
               value={this.state.email}
               onChange={this.handleChangeValue}
+              validationCheck={validation.checkEmail}
             /> 
             <FormGroup className="row">
               <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">비밀번호</Label>
