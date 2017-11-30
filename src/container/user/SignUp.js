@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form'
 
-import * as validation from '../../lib/user/validations';
+import { required, emailTypeCheck } from '../../lib/user/validations';
 
 const rendorFormGroup = (field) => {
   return (
     <FormGroup className="row">
       <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" htmlFor={field.input.name}>{field.label}</Label>
-      <Input className={`col-12 col-md-8${field.meta.touched && field.meta.error && " is-invalid"}`}
+      <Input className={"col-12 col-md-8" + (field.meta.touched && field.meta.error ? " is-invalid" : '')}
         {...field.input} type={field.type}
         placeholder={field.placeholderMessage}
         disabled={field.meta.asyncValidating}
@@ -48,7 +48,7 @@ class SignUp extends Component {
         <div className="">
           <h2>회원가입</h2>
           <Form>
-            <Field name="email" type="email" component={rendorFormGroup} label="Email" placeholderMessage="이메일 주소를 입력해주세요" validate={[validation.required]}/> 
+            <Field name="email" type="email" component={rendorFormGroup} label="Email" placeholderMessage="이메일 주소를 입력해주세요" validate={[required, emailTypeCheck]}/> 
             <FormGroup className="row">
               <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">비밀번호</Label>
               <Input className="col-12 col-md-8"  type="password" name="email" id="exampleEmail" placeholder="비밀번호를 입력해주세요." />    
