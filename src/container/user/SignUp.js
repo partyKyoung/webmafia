@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Field, reduxForm } from 'redux-form'
+
 import * as validation from '../../lib/user/validations';
 
-const FormField = (props) => {
-  const {label, placeholder, onChange, type, value, validationCheck} = props;
-  let error = '';
-  const blurEvent = (value) => {
-    error = validationCheck(value);
-  }
-
-  console.log(error);
-
+const rendorFormGroup = (field) => {
   return (
     <FormGroup className="row">
-      <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for={type}>{label}</Label>
-      <Input className="col-12 col-md-8" 
-        type={type} name={type} id={type} 
-        placeholder={placeholder} 
-        onChange={(e) => {onChange(type, e.target.value)}}
-        onBlur={(e) => {blurEvent(e.target.value)}}
-        value={value}
+      <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" htmlFor={field.input.name}>{field.label}</Label>
+      <Input className={`col-12 col-md-8${field.meta.touched && field.meta.error && " is-invalid"}`}
+        {...field.input} type={field.type}
+        placeholder={field.placeholderMessage}
+        disabled={field.meta.asyncValidating}
       />
-      <div className="invalid-feedback">{error}</div>
-    </FormGroup>    
+      {
+        field.meta.touched && field.meta.error && 
+        <div className="invalid-feedback">{field.meta.error}</div>
+      }
+    </FormGroup>  
   );
 }
 
@@ -50,17 +45,10 @@ class SignUp extends Component {
   render () {
     return (
       <div className="container">
-        <div className="col-12 col-md-8 mx-auto">
+        <div className="">
           <h2>회원가입</h2>
           <Form>
-            <FormField 
-              label="Email"
-              type="email"
-              placeholder="Email을 입력해주세요."
-              value={this.state.email}
-              onChange={this.handleChangeValue}
-              validationCheck={validation.checkEmail}
-            /> 
+            <Field name="email" type="email" component={rendorFormGroup} label="Email" placeholderMessage="이메일 주소를 입력해주세요" validate={[validation.required]}/> 
             <FormGroup className="row">
               <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">비밀번호</Label>
               <Input className="col-12 col-md-8"  type="password" name="email" id="exampleEmail" placeholder="비밀번호를 입력해주세요." />    
@@ -90,5 +78,9 @@ class SignUp extends Component {
     );
   }
 }
+
+SignUp = reduxForm({
+	form: 'signUp'
+})(SignUp);
 
 export default SignUp;

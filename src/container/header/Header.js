@@ -58,7 +58,7 @@ class Header extends Component {
     return (
       <div className="header">
         <header className="bg-secondary">
-          <h1 className="m-0 float-left">웹마피아</h1>  
+          <h1 className="m-0 float-left">늑대온에어</h1>  
           <Navbar className="header-nav float-right h-100" color="faded" light expand="md">
             <NavbarToggler onClick={this.handleToggle} />
             <Collapse isOpen={this.state.OpenDropdown} navbar>

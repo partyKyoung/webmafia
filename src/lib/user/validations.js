@@ -1,4 +1,4 @@
-const required = (value) => {
+export const required = (value) => {
   return value ? '' : "필수 정보 입니다";
 }
 

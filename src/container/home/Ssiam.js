@@ -17,7 +17,7 @@ class Ssiam extends Component {
 
   getDate () {
     let today = moment(new Date());
-    const date = moment("2017-11-14");
+    const date = moment("2017-12-13");
     const date2 =  date.diff(today, 'days');
     let date3;
     let date4;
@@ -54,7 +54,7 @@ class Ssiam extends Component {
   render() {
     return (
       <div>
-        Blackssiam 군대 가기 전까지 남은 시간 ㅠㅠ<br/>
+        준범이 백수 되기까지 남은 시간<br/>
         {this.state.date}<br/>
       </div>
     );
