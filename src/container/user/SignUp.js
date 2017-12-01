@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form'
 
-import { required, emailTypeCheck } from '../../lib/user/validations';
+import { required, emailCheck, passwordCheck, nickNameLengthCheck, nickNameCheck } from '../../lib/user/validations';
 
 const rendorFormGroup = (field) => {
   return (
@@ -48,19 +48,10 @@ class SignUp extends Component {
         <div className="">
           <h2>회원가입</h2>
           <Form>
-            <Field name="email" type="email" component={rendorFormGroup} label="Email" placeholderMessage="이메일 주소를 입력해주세요" validate={[required, emailTypeCheck]}/> 
-            <FormGroup className="row">
-              <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">비밀번호</Label>
-              <Input className="col-12 col-md-8"  type="password" name="email" id="exampleEmail" placeholder="비밀번호를 입력해주세요." />    
-            </FormGroup>
-            <FormGroup className="row">
-              <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">비밀번호 확인</Label>
-              <Input className="col-12 col-md-8"  type="password" name="email" id="exampleEmail" placeholder="비밀번호를 입력해주세요." />  
-            </FormGroup>      
-            <FormGroup className="row">      
-              <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">닉네임</Label>
-              <Input className="col-12 col-md-8"  type="email" name="email" id="exampleEmail" placeholder="닉네임(최대 8글자)을 입력해주세요." />         
-            </FormGroup>
+            <Field name="email" type="email" component={rendorFormGroup} label="Email" placeholderMessage="이메일 주소를 입력해주세요" validate={[required, emailCheck]}/> 
+            <Field name="password" type="password" component={rendorFormGroup} label="비밀번호" placeholderMessage="비밀번호를 입력해주세요" validate={[required, passwordCheck]}/> 
+            <Field name="passwordCheck" type="password" component={rendorFormGroup} label="비밀번호 확인" placeholderMessage="비밀번호를 입력해주세요" validate={[required, passwordCheck]}/> 
+            <Field name="nickname" type="text" component={rendorFormGroup} label="닉네임" placeholderMessage="닉네임을 입력해주세요" validate={[required, nickNameLengthCheck, nickNameCheck]}/> 
             <FormGroup className="row">      
               <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">프로필 사진</Label>
               <div className="col-12 col-md-8">
