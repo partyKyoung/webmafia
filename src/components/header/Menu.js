@@ -6,7 +6,7 @@ class Menu extends Component {
     return (
       <Nav className="w-100 menu">
         <NavItem>
-          <NavLink href="/components/">게임 시작</NavLink>
+          <NavLink href="/chatList">게임 시작</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="https://github.com/reactstrap/reactstrap">자유 게시판</NavLink>
