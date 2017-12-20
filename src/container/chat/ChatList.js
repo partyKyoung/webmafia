@@ -21,8 +21,8 @@ class ChatList extends Component {
     });
 
     return (
-      <div>
-        <ul>
+      <div className="container">
+        <ul className="chat-list border-primary">
           {chatList}
         </ul>
       </div>
