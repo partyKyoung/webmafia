@@ -1,6 +1,10 @@
+@import "~bootstrap/scss/bootstrap";
+
 @import './scss/variables.scss';
 @import './scss/common.scss';
+
 @import './scss/header.scss';
 @import './scss/footer.scss';
+
 @import './scss/home/home.scss';
 @import './scss/chat/chat-list.scss'

@@ -4,6 +4,16 @@
 
 .chat-room {
     height: 80px;
+
+    @include media-breakpoint-up(md) { 
+        &:nth-of-type(odd) {
+            padding-left: 0;
+        }
+
+        &:nth-of-type(even) {
+            padding-right: 0;
+        }        
+     }
 }
 
 .chat-room-content {

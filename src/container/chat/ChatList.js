@@ -6,7 +6,7 @@ function Chat ({chatRoom}) {
   const participantCount = chatRoom.participantList.length;
 
   return (
-    <li className="chat-room col-12 col-md-6 clearfix">
+    <li className="chat-room col-12 col-md-6 pl-1 pr-1 clearfix">
       <div className="chat-room-content chat-room-seq float-left h-100">{chatRoom.seq}</div>
       <div className="chat-room-content chat-room-body float-left h-100 clearfix">
         <p className="chat-room-title w-100">{chatRoom.title}</p>
