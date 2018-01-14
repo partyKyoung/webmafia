@@ -1,3 +1,21 @@
 .chat-list {
     border: 1px solid;
 }
+
+.chat-room {
+    height: 80px;
+}
+
+.chat-room-content {
+    border: 1px solid #ddd;
+}
+
+.chat-room-seq {
+    width: 20%;
+    border-right: 0;
+}
+
+.chat-room-body {
+    width: 80%;
+    border-left: 0;    
+}
