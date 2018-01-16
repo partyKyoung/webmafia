@@ -9,7 +9,7 @@ class Menu extends Component {
           <NavLink href="/lobby">게임 시작</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://github.com/reactstrap/reactstrap">자유 게시판</NavLink>
+          <NavLink href="/board/free">자유 게시판</NavLink>
         </NavItem>
       </Nav> 
     );

@@ -6,6 +6,7 @@ import Header from './container/header/Header';
 import Home from './container/home/Home';
 import Ssiam from './container/home/Ssiam';
 import Lobby from './container/game/Lobby';
+import Room from './container/game/Room';
 import Board from './container/board/Board';
 import Footer from './container/footer/Footer';
 import SignUp from './container/user/SignUp';
@@ -18,8 +19,8 @@ class App extends Component {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/lobby' component={Lobby} />
+        <Route path='/room/:seq' component={Room} />
         <Route path='/board/free' component={Board} />
-        <Route path='/ssiam' component={Ssiam} />
         <Route path='/user/SignUp' component={SignUp} />
       </Switch>   
       <Footer />
