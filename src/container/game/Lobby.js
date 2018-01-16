@@ -6,7 +6,7 @@ function Chat ({chatRoom}) {
   const participantCount = chatRoom.participantList.length;
 
   return (
-    <li className="chat-room col-12 col-md-6 pl-1 pr-1">
+    <li className="chat-room col-12 col-md-6 pl-1 pr-1 mb-2">
       <div className="chat-room-content chat-room-seq w-100 d-flex">
         <span className="chat-room-status mr-auto">No.{chatRoom.seq}</span>
         <span className="chat-rom-seq ml-auto"> {chatRoom.status}</span>
@@ -29,11 +29,11 @@ class Lobby extends Component {
       <div className="container">
         <div className="lobby row ml-auto mr-auto">
           <div className="lobby-my-page col-3 d-none d-md-block">내정보</div>
-          <ul className="lobby-chat-list border-primary col-12 col-md-9 row m-0 p-2">
+          <ul className="lobby-chat-list border-primary col-12 col-md-9 row m-0 pt-2 pl-2 pr-2">
             {chatList}
           </ul>    
-          <div className="col-3 d-none d-md-block">접속자 목록</div>    
-          <div className="lobby-chat col-12 col-md-9"></div>
+          <div className="lobby-chat-room col-3 d-none d-md-block mt-3 p-0">로비에서 놀고 있는 사람들</div>    
+          <div className="lobby-chat-room col-12 col-md-9 mt-3 p-0"></div>   
         </div>
       </div>
     );

@@ -1,5 +1,8 @@
-.chat-list {
+.lobby-chat-list {
     border: 1px solid;
+    height: 360px;
+    border: 1px solid #ddd;
+    overflow-y: scroll;    
 }
 
 .chat-room {
@@ -28,4 +31,9 @@
 .chat-room-body {
     height: 50px;
     border-top: 0;    
+}
+
+.lobby-chat-room {
+    height: 250px;
+    overflow-y: scroll;
 }
