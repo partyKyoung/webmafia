@@ -34,10 +34,23 @@
 }
 
 .lobby-chat-room-board {
+    border: 1px solid #ddd;
     height: 180px;
     overflow-y: scroll;
+    font-size: 14px;
 }
 
 .lobby-chat-room-input {
     height: 20px;
+}
+
+.lobby-chat-message-name {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+
+.lobby-chat-message-message {
+    width: calc(100% - 100px);
 }

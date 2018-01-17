@@ -9,9 +9,9 @@ function Message ({message}) {
   }
 
   return (
-    <div>
-      <span>{message.userName}</span>
-      <span>{message.message}</span>
+    <div className="lobby-chat-message pt-2 clearfix">
+      <span className="lobby-chat-message-name d-inline-block float-left">{message.userName}</span>
+      <span className="lobby-chat-message-message pl-2 d-inline-block float-left">{message.message}</span>
     </div>
   );
 }
@@ -54,10 +54,15 @@ class Lobby extends Component {
           </ul>    
           <div className="lobby-chat-room col-3 d-none d-md-block mt-3 p-0">로비에서 놀고 있는 사람들</div>    
           <div className="lobby-chat-room col-12 col-md-9 mt-3 p-0">
-            <div className="lobby-chat-room-board w-100 p-3">
+            <div className="lobby-chat-room-board w-100 p-2">
               {messageList}
             </div> 
-            <input type="text" className="lobby-chat-room-input w-100 p-3" ref={lobbyInput => {this.chatInput = lobbyInput}}/>
+            <input 
+              type="text" 
+              className="lobby-chat-room-input w-100 p-3" 
+              ref={lobbyInput => {this.chatInput = lobbyInput}}
+              maxLength={50}
+            />
           </div>
         </div>
       </div>
