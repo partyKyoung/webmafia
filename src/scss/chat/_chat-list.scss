@@ -33,7 +33,11 @@
     border-top: 0;    
 }
 
-.lobby-chat-room {
-    height: 200px;
+.lobby-chat-room-board {
+    height: 180px;
     overflow-y: scroll;
+}
+
+.lobby-chat-room-input {
+    height: 20px;
 }

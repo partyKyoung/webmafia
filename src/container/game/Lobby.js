@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { chatRoom } from '../../mock/chat/chatList';
+import { messages } from '../../mock/chat/lobbyChat';
+
+function Message ({message}) {
+  if (!message){
+    return;
+  }
+
+  return (
+    <div>
+      <span>{message.userName}</span>
+      <span>{message.message}</span>
+    </div>
+  );
+}
 
 function Chat ({chatRoom}) {  
   const participantCount = chatRoom.participantList.length;
@@ -27,6 +41,10 @@ class Lobby extends Component {
       return <Chat chatRoom={chatItem} />;
     });
 
+    const messageList = messages.map((message, index) => {
+      return <Message message={message} />;
+    });
+
     return (
       <div className="container">
         <div className="lobby row mt-3 ml-auto mr-auto">
@@ -35,7 +53,12 @@ class Lobby extends Component {
             {chatList}
           </ul>    
           <div className="lobby-chat-room col-3 d-none d-md-block mt-3 p-0">로비에서 놀고 있는 사람들</div>    
-          <div className="lobby-chat-room col-12 col-md-9 mt-3 p-0"></div>   
+          <div className="lobby-chat-room col-12 col-md-9 mt-3 p-0">
+            <div className="lobby-chat-room-board w-100 p-3">
+              {messageList}
+            </div> 
+            <input type="text" className="lobby-chat-room-input w-100 p-3" ref={lobbyInput => {this.chatInput = lobbyInput}}/>
+          </div>
         </div>
       </div>
     );
