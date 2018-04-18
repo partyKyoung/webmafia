@@ -1,0 +1,14 @@
+@import '../../scss/_variables.scss';
+
+.wo-header {
+  height: $header-height;
+}
+
+.wo-header-logo {
+  line-height: $header-height;
+  font-size: 1rem;
+}
+
+.wo-header-link {
+  color: $white;
+}
