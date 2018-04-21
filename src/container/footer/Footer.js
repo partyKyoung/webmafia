@@ -5,8 +5,8 @@ import './footer.scss';
 class Footer extends Component {
   render () {
     return (
-      <footer>
-        푸터!
+      <footer className="wo-footer text-secondary text-center">
+        <p>늑대온에어 by 경아</p>
       </footer>
     );
   }
