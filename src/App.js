@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 
-import Header from './container/header/Header';
-import Home from './container/home/Home';
-import Ssiam from './container/home/Ssiam';
-import Lobby from './container/game/Lobby';
-import Room from './container/game/Room';
-import Board from './container/board/Board';
-import Footer from './container/footer/Footer';
-import SignUp from './container/user/SignUp';
+import Header from './containers/header/Header';
+import Home from './containers/home/Home';
+import Lobby from './containers/game/Lobby';
+import Room from './containers/game/Room';
+import Board from './containers/board/Board';
+import Footer from './containers/footer/Footer';
+import SignUp from './containers/user/SignUp';
 
 class App extends Component {
   render() {
@@ -20,7 +19,7 @@ class App extends Component {
         <Route path='/lobby' component={Lobby} />
         <Route path='/room/:seq' component={Room} />
         <Route path='/board/free' component={Board} />
-        <Route path='/user/SignUp' component={SignUp} />
+        <Route path='/user/signUp' component={SignUp} />
       </Switch>   
       <Footer />
     </div>
