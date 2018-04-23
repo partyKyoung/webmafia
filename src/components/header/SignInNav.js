@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, NavItem, NavLink, Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { Link } from 'react-router-dom'
+import { Nav, NavItem, NavLink, Modal, ModalBody } from 'reactstrap';
 
-import SignIn from 'components/user/SignIn';
+import SignIn from 'containers/user/SignIn';
 
 import './nav.scss';
 
@@ -30,20 +31,21 @@ class SignInNav extends Component {
     return (
       <Nav className="wo-nav float-right h-100">
         <NavItem>
-          <NavLink href="/user/SignUp">회원가입</NavLink>
+          <Link className="nav-link" to="/user/signUp">
+            회원가입
+          </Link>
         </NavItem>
         <NavItem>
           <NavLink onClick={this.handleOpenLoginModal}>로그인</NavLink>
         </NavItem>   
-        <Modal isOpen={this.state.isShownLoginModal} toggle={this.handleCloseLoginModal}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+        <Modal 
+          className="modal-sm"
+          isOpen={this.state.isShownLoginModal} 
+          toggle={this.handleCloseLoginModal}
+        >
           <ModalBody>
             <SignIn />
           </ModalBody>
-          <ModalFooter>
-            <Button color="primary">로그인</Button>{' '}
-            <Button color="secondary" onClick={this.handleCloseLoginModal}>취소</Button>
-          </ModalFooter>
         </Modal>             
       </Nav>
     );

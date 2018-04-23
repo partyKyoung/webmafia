@@ -4,7 +4,15 @@
   line-height: $header-height;
 
   .nav-link {
+    background: none;
+    border: 0;
     padding: 0 8px;
+    color: $white;
+    cursor: pointer;
+  }
+
+  // 로그인 버튼
+  a:not([href]):not([tabindex]) {
     color: $white;
   }
 }

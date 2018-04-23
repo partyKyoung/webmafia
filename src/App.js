@@ -9,6 +9,8 @@ import Board from './containers/board/Board';
 import Footer from './containers/footer/Footer';
 import SignUp from './containers/user/SignUp';
 
+import './app.scss';
+
 class App extends Component {
   render() {
     return (
