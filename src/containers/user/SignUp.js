@@ -4,18 +4,19 @@ import { Field, reduxForm } from 'redux-form'
 
 import { required, emailCheck, passwordCheck, nickNameLengthCheck, nickNameCheck } from '../../lib/user/validations';
 
+import './signup.scss';
+
 const rendorFormGroup = (field) => {
   return (
-    <FormGroup className="row">
-      <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" htmlFor={field.input.name}>{field.label}</Label>
-      <Input className={"col-12 col-md-8" + (field.meta.touched && field.meta.error ? " is-invalid" : '')}
+    <FormGroup>
+      <Input className={"w-100" + (field.meta.touched && field.meta.error ? " is-invalid" : '')}
         {...field.input} type={field.type}
         placeholder={field.placeholderMessage}
         disabled={field.meta.asyncValidating}
       />
       {
         field.meta.touched && field.meta.error && 
-        <div className="invalid-feedback">{field.meta.error}</div>
+        <span className="invalid-feedback mt-1 text-left">{field.meta.error}</span>
       }
     </FormGroup>  
   );
@@ -44,27 +45,16 @@ class SignUp extends Component {
 
   render () {
     return (
-      <div className="container">
-        <div className="">
-          <h2>회원가입</h2>
-          <Form>
-            <Field name="email" type="email" component={rendorFormGroup} label="Email" placeholderMessage="이메일 주소를 입력해주세요" validate={[required, emailCheck]}/> 
-            <Field name="password" type="password" component={rendorFormGroup} label="비밀번호" placeholderMessage="비밀번호를 입력해주세요" validate={[required, passwordCheck]}/> 
-            <Field name="passwordCheck" type="password" component={rendorFormGroup} label="비밀번호 확인" placeholderMessage="비밀번호를 입력해주세요" validate={[required, passwordCheck]}/> 
-            <Field name="nickname" type="text" component={rendorFormGroup} label="닉네임" placeholderMessage="닉네임을 입력해주세요" validate={[required, nickNameLengthCheck, nickNameCheck]}/> 
-            <FormGroup className="row">      
-              <Label className="col-12 col-md-4 col-form-label text-md-right pl-0 pr-4" for="exampleEmail">프로필 사진</Label>
-              <div className="col-12 col-md-8">
-                <div className="profile-input">
-                  <label htmlFor="imageFile">
-                    <i className="fa fa-file-image-o" aria-hidden="true"/>
-                  </label>
-                  <input id="imageFile" type="file" accept="image/*" ref={input => this.fileEl = input} onChange={null}/>                  
-                </div>
-              </div>                                                       
-            </FormGroup>                    
-          </Form>        
-        </div>
+      <div className="container text-center">
+        <h2 className="mt-3 mb-3">회원가입</h2>
+        <Form className="wo-form ml-auto mr-auto">
+          <Field name="email" type="email" component={rendorFormGroup} placeholderMessage="이메일" validate={[required, emailCheck]}/> 
+          <Field name="password" type="password" component={rendorFormGroup} placeholderMessage="비밀번호" validate={[required, passwordCheck]}/> 
+          <Field name="passwordCheck" type="password" component={rendorFormGroup} placeholderMessage="비밀번호 확인" validate={[required, passwordCheck]}/> 
+          <Field name="nickname" type="text" component={rendorFormGroup} placeholderMessage="닉네임" validate={[required, nickNameLengthCheck, nickNameCheck]}/>  
+          <button type="submit" className="btn mr-3">가입</button>
+          <button type="submit" className="btn">취소</button>           
+        </Form>    
       </div>
     );
   }
