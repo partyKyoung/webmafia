@@ -7,7 +7,6 @@ import Lobby from './containers/game/Lobby';
 import Room from './containers/game/Room';
 import Board from './containers/board/Board';
 import Footer from './containers/footer/Footer';
-import SignUp from './containers/user/SignUp';
 
 import './app.scss';
 

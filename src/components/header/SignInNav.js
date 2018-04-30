@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { Nav, NavItem, NavLink, Modal, ModalBody } from 'reactstrap';
 
-import SignUp from 'containers/user/SignUp';
-import SignIn from 'containers/user/SignIn';
+import SignUp from 'containers/users/SignUp';
+import SignIn from 'containers/users/SignIn';
 
 import './nav.scss';
 
@@ -45,12 +44,13 @@ class SignInNav extends Component {
           <NavLink onClick={() => {this.handleOpenModal('isShownLoginModal')}}>로그인</NavLink>
         </NavItem>   
         <Modal 
-          className="modal-sm"
+          className="modal-md"
           isOpen={isShownLoginModal || isShownSignupModal} 
           toggle={this.handleCloseModal}
         >
           <ModalBody>
             {
+              // isShownLoginModal: true 이면 로그인 모달 출력, isShownSignupModal: true이면 회원가입 모달 출력
               isShownLoginModal ? 
                 <SignIn />
               :

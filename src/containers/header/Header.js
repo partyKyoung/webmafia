@@ -7,8 +7,6 @@ import './header.scss';
 
 class Header extends Component {
   render () {
-    const isLogin = this.props.isLogin;
-
     return (
       <header className="wo-header bg-secondary pl-3 pr-3 clearfix">
         <h1 className="wo-header-logo h-100 float-left">

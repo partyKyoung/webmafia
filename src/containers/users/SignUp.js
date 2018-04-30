@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form'
 
 import RenderFormGroup from 'components/user/RenderFormGroup';
 
 import { required, emailCheck, passwordCheck, nickNameLengthCheck, nickNameCheck } from '../../lib/user/validations';
+import { getKaKaoCode } from 'service/users/authKaKao';
 
 import './signup.scss';
-
 
 class SignUp extends Component {
   constructor (props) {
@@ -45,7 +45,7 @@ class SignUp extends Component {
           </div>     
         </Form>       
         <Button className="w-100 mb-1">페이스북 회원가입</Button> 
-        <Button className="w-100 btn btn-info">카카오 회원가입</Button>           
+        <Button type="submit" onClick={getKaKaoCode} className="w-100 btn btn-info">카카오 회원가입</Button>           
       </div>
     );
   }
