@@ -38,10 +38,14 @@ class SignUp extends Component {
           <Field name="email" type="email" component={RenderFormGroup} placeholderMessage="이메일" validate={[required, emailCheck]}/> 
           <Field name="password" type="password" component={RenderFormGroup} placeholderMessage="비밀번호" validate={[required, passwordCheck]}/> 
           <Field name="passwordCheck" type="password" component={RenderFormGroup} placeholderMessage="비밀번호 확인" validate={[required, passwordCheck]}/> 
-          <Field name="nickname" type="text" component={RenderFormGroup} placeholderMessage="닉네임" validate={[required, nickNameLengthCheck, nickNameCheck]}/>  
-          <button type="submit" className="btn mr-3">가입</button>
-          <button type="submit" className="btn">취소</button>           
-        </Form>    
+          <Field name="nickname" type="text" component={RenderFormGroup} placeholderMessage="닉네임" validate={[required, nickNameLengthCheck, nickNameCheck]}/> 
+          <div className="mb-3">
+            <Button type="submit" className="btn mr-3">가입</Button>
+            <Button type="button" className="btn">취소</Button>    
+          </div>     
+        </Form>       
+        <Button className="w-100 mb-1">페이스북 회원가입</Button> 
+        <Button className="w-100 btn btn-info">카카오 회원가입</Button>           
       </div>
     );
   }

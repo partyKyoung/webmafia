@@ -21,7 +21,6 @@ class App extends Component {
         <Route path='/lobby' component={Lobby} />
         <Route path='/room/:seq' component={Room} />
         <Route path='/board/free' component={Board} />
-        <Route path='/user/signUp' component={SignUp} />
       </Switch>   
       <Footer />
     </div>

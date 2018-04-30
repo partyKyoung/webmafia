@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form'
 
 import RenderFormGroup from 'components/user/RenderFormGroup';
@@ -7,6 +7,14 @@ import RenderFormGroup from 'components/user/RenderFormGroup';
 import { required } from '../../lib/user/validations';
 
 class SignIn extends Component {
+  constructor (props) {
+    super(props);
+
+    this.handleLoginWithKakao = this.handleLoginWithKakao.bind(this);
+  }
+
+  handleLoginWithKakao () {}
+  
   render() {
     return (
       <div className="text-center">
@@ -17,8 +25,8 @@ class SignIn extends Component {
           <Button className="btn mr-1">로그인</Button>
           <Button>취소</Button> 
         </Form> 
-        <button className="w-100 btn btn-primary mb-1">페이스북 로그인</button> 
-        <button className="w-100 btn btn-info">카카오 로그인</button>   
+        <Button className="w-100 mb-1">페이스북 로그인</Button> 
+        <Button onClick={this.handleLoginWithKakao} className="w-100 btn btn-info">카카오 로그인</Button>   
       </div>
     );
   }

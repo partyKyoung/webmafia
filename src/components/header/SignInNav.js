@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Nav, NavItem, NavLink, Modal, ModalBody } from 'reactstrap';
 
+import SignUp from 'containers/user/SignUp';
 import SignIn from 'containers/user/SignIn';
 
 import './nav.scss';
@@ -11,42 +12,52 @@ class SignInNav extends Component {
     super(props);
 
     this.state = {
-      isShownLoginModal: false
+      isShownLoginModal: false,
+      isShownSignupModal: false
     }
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  handleOpenLoginModal = () => {
+  handleOpenModal (isShownModal) {
     this.setState({
-      isShownLoginModal: true
+      [isShownModal]: true
     })
   }
 
-  handleCloseLoginModal = () => {
+  handleCloseModal () {
     this.setState({
+      isShownSignupModal: false,
       isShownLoginModal: false
     })
   }
 
   render() {
+    const {isShownLoginModal, isShownSignupModal} = this.state;
+
     return (
       <Nav className="wo-nav float-right h-100">
         <NavItem>
-          <Link className="nav-link" to="/user/signUp">
-            회원가입
-          </Link>
+        <NavLink onClick={() => {this.handleOpenModal('isShownSignupModal')}}>회원가입</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink onClick={this.handleOpenLoginModal}>로그인</NavLink>
+          <NavLink onClick={() => {this.handleOpenModal('isShownLoginModal')}}>로그인</NavLink>
         </NavItem>   
         <Modal 
           className="modal-sm"
-          isOpen={this.state.isShownLoginModal} 
-          toggle={this.handleCloseLoginModal}
+          isOpen={isShownLoginModal || isShownSignupModal} 
+          toggle={this.handleCloseModal}
         >
           <ModalBody>
-            <SignIn />
+            {
+              isShownLoginModal ? 
+                <SignIn />
+              :
+                <SignUp />
+            }
           </ModalBody>
-        </Modal>             
+        </Modal>                     
       </Nav>
     );
   }
