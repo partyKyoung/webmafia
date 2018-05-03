@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class App extends Component {
-  render() {
-
-    return (
-      <div className="app">
-
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="app">
+      늑대온에어
+    </div>
+  );
 }
 
 export default App;
