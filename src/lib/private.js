@@ -1,0 +1,1 @@
+export const kakaoKey = '9d20ffa1f3b46809fa51d7dd3b46ea41';
