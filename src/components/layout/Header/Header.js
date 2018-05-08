@@ -1,9 +1,17 @@
+// @flow
+
 import React, { Component } from 'react';
 
 import './Header.scss';
 
-class Header extends Component {
-  constructor(props) {
+type Props = {}
+
+type State = {
+  isLoggedIn: boolean
+}
+
+class Header extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
