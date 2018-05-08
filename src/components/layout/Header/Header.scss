@@ -1,0 +1,8 @@
+@import 'variables';
+
+.wo-header {
+  height: $header-height;
+  line-height: $header-height;
+  text-align: center;
+  background-color: $header-color;
+}

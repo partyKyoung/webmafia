@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Header from 'components/layout/Header/Header';
 import Footer from 'components/layout/Footer/Footer';
 
 import './App.scss';
@@ -7,7 +8,7 @@ import './App.scss';
 function App() {
   return (
     <div className="app">
-      늑대온에어
+      <Header />
       <Footer />
     </div>
   );
