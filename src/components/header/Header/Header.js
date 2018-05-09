@@ -1,6 +1,8 @@
 // @flow
-
 import React, { Component } from 'react';
+
+import SignInMenu from 'components/header/SignInMenu';
+import UserMenu from 'components/header/UserMenu';
 
 import './Header.scss';
 
@@ -23,10 +25,13 @@ class Header extends Component<Props, State> {
     const { isLoggedIn } = this.state;
 
     return (
-      <header className="wo-header">
+      <header className="wo-header pl-3 pr-3 d-flex">
+        <h1 className="wo-header-logo mr-auto">늑대온에어</h1>
         {
           isLoggedIn ?
-          '로그인' : '로그인 ㄴㄴ'
+            <UserMenu />
+          :
+            <SignInMenu />
         }
       </header>
     );

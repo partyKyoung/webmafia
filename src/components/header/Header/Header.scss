@@ -2,7 +2,11 @@
 
 .wo-header {
   height: $header-height;
-  line-height: $header-height;
-  text-align: center;
   background-color: $header-color;
+}
+
+.wo-header-logo {
+  line-height: $header-height;
+  font-size: 1rem;
+  color: $logo-color;
 }
