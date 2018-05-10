@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { Modal } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Nav, NavItem, Modal } from 'reactstrap';
 
 type Props = {}
 type State = {
@@ -20,11 +21,19 @@ class SignInMenu extends Component<Props, State> {
     const { isOpenLoginModal } = this.state;
 
     return (
-      <div className="mr-right">
+      <Nav className="mr-right">
+        <NavItem>
+          <Link to="/users/signIn">
+            회원가입
+          </Link>
+        </NavItem>
+        <NavItem>
+          로그인
+        </NavItem>
         <Modal isOpen={isOpenLoginModal}>
           로그인
         </Modal>
-      </div>
+      </Nav>
     );
   }
 }
